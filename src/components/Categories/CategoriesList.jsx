@@ -1,10 +1,11 @@
 const CategoriesList = ({ categories = [], setCategories }) => {
+
     const deleteCategory = (category) => {
-    const newList = categories.filter((cat) => cat !== category)
-    setCategories([...newList])
+        const newList =categories.filter((cat) => cat!== category)
+        setCategories([...newList])
     }
-  
-      return (
+    
+    return (
         <ol>
             {
                 categories.map((category) => (
@@ -15,6 +16,6 @@ const CategoriesList = ({ categories = [], setCategories }) => {
             }
         </ol>
     )
-  }
-  
-  export default CategoriesList
+}
+
+export default CategoriesList
