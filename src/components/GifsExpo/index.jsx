@@ -8,7 +8,7 @@ const GifsExpo = ({ categories = [] }) => {
 
         const responsesList = await Promise.all(categories.map(async (category) => {
             const response = await fetch(
-                `https://api.giphy.com/v1/gifs/search?api_key=ZSoKyqVSkSAmkqFvmIq50vkXQzNtXpZn&q=${category}&limit=10`
+                `https://api.giphy.com/v1/gifs/search?api_key=EFS6gFbXJZRosmPw59zULSiEV6gT97C2&q=${category}&limit=10`
             )
             const apiResponse = await response.json()
             return apiResponse.data
@@ -18,7 +18,7 @@ const GifsExpo = ({ categories = [] }) => {
 
         responsesList.forEach((data) => {
             data.forEach((item) => {
-                gifsList = [...gifsList, item.images.fixed_width.url]
+                gifsList = [...gifsList, item.images.fixed_width.url.split('?')[0]]
             })
         })
 
@@ -29,18 +29,15 @@ const GifsExpo = ({ categories = [] }) => {
 
     return (
         <>
-            <h4>GitExpo</h4>
-            <ol>
+            <div>
                 {
                     urlList.map((url) => {
                         return (
-                            <li key={url}>
-                                {url}
-                            </li>
+                            <img key={url} src={url} />   
                         )
                     })
                 }
-            </ol>
+            </div>
         </>
     )
 }

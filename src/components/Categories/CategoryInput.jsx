@@ -9,6 +9,7 @@ const CategoryInput = ({categories = [], setCategories}) => {
 
     const handleCategoryButton = () => {
         setCategories([inputValue, ...categories])
+        setInputValue ("")
     }
 
     return (
@@ -29,4 +30,4 @@ const CategoryInput = ({categories = [], setCategories}) => {
     )
 }
 
-export default CategoryInput 
+export default CategoryInput
